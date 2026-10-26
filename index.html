@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LL Customer Search</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container-fluid py-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header text-white">
+            <h4 class="mb-0">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                LL Customer Search
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">
+                        Kd Gabungan
+                    </label>
+
+                    <select
+                        id="kdGabungan"
+                        class="form-select">
+
+                        <option value="ALL">
+                            ALL
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">
+                        Kd Customer
+                    </label>
+
+                    <select
+                        id="kdCustomer"
+                        class="form-select">
+
+                        <option value="ALL">
+                            ALL
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">
+                        Nama Customer
+                    </label>
+
+                    <input
+                        type="text"
+                        id="namaCustomer"
+                        class="form-control"
+                        placeholder="Ketik Nama Customer">
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-check mt-3">
+
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            id="matchCase">
+
+                        <label
+                            class="form-check-label"
+                            for="matchCase">
+
+                            Match Case (Exact Match)
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 text-end">
+
+                    <button
+                        id="searchBtn"
+                        class="btn btn-primary">
+
+                        <i class="fa-solid fa-search"></i>
+                        Search
+
+                    </button>
+
+                    <button
+                        id="clearBtn"
+                        class="btn btn-danger">
+
+                        <i class="fa-solid fa-eraser"></i>
+                        Clear All
+
+                    </button>
+
+                    <button
+                        id="copyBtn"
+                        class="btn btn-success">
+
+                        <i class="fa-solid fa-copy"></i>
+                        Copy Selected
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="mt-3">
+
+        <span
+            id="resultInfo"
+            class="badge fs-6">
+
+            0 Data
+
+        </span>
+
+    </div>
+
+    <div class="table-responsive mt-3 desktop-table">
+
+        <table class="table table-bordered table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th width="80">Keep</th>
+                    <th>Kd Gabungan</th>
+                    <th>Kd Customer</th>
+                    <th>Nama Customer</th>
+                    <th>Alamat Toko</th>
+                    <th width="120">Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="resultTable"></tbody>
+
+        </table>
+
+    </div>
+
+    <div
+        id="mobileResult"
+        class="mobile-card mt-3">
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-3 mt-3 pagination-mobile">
+
+        <button
+            id="prevPage"
+            class="btn btn-outline-primary">
+
+            <i class="fa-solid fa-angle-left"></i>
+            Previous
+
+        </button>
+
+        <span id="pageInfo">
+            1 / 1
+        </span>
+
+        <button
+            id="nextPage"
+            class="btn btn-outline-primary">
+
+            Next
+            <i class="fa-solid fa-angle-right"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+<div
+    id="toastMessage"
+    class="copy-toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+    Data berhasil disalin
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
